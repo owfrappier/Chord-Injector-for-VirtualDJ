@@ -1,0 +1,11 @@
+Chord Injector for VirtualDJ — Copyright (c) 2026 Olivier FRAPPIER. All rights reserved.
+
+The compiled application is provided free of charge ("freeware"), for personal and professional use.
+You may not sell, modify, decompile or redistribute it without written permission.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IT MODIFIES YOUR VIRTUALDJ DATABASE
+AND, OPTIONALLY, THE TAGS OF YOUR AUDIO FILES: USE IT AT YOUR OWN RISK. IN NO EVENT SHALL THE AUTHOR
+BE LIABLE FOR ANY CLAIM, DAMAGES OR DATA LOSS.
+
+This application uses the JUCE framework (https://juce.com) under the JUCE licence.
+VirtualDJ is a trademark of Atomix Productions; this project is not affiliated with Atomix Productions.

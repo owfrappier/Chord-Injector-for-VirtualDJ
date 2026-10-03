@@ -1,395 +1,93 @@
+<p align="center"><img src="icon.png" width="160" alt="Chord Injector for VirtualDJ"></p>
 
-
-## Version
-
-Apple only (Mac arm)
-✔ Python = main code
-✔ AppleScript = launcher
----------------------------------------------
-Changelog :
-V13.2 : Make Python path portable using user home (~/.venvs/audio312)
-V13.1 : improve thirds m/M detection
-🔥 V13 – BeatGrid-Aware Chord Detection (DJ Clean Engine)
-
-🎯 Major Update
-
-This version introduces VirtualDJ BeatGrid integration (fixed & variable BPM) to significantly improve chord timing accuracy and musical relevance.
-
-⸻
-
-🧠 New Features
-
-🎧 BeatGrid Integration (VirtualDJ XML)
-
-* Supports both:
-    * ✔ Fixed BPM (Bpm + Phase)
-    * ✔ Variable BPM (fluid) (BeatGrid=...)
-* Automatically extracts beat positions from VirtualDJ database
-* Falls back to librosa beat detection if unavailable
-
-👉 Result: chords are now aligned with actual DJ beat structure
-
-⸻
-
-⚡ Improved Timing Accuracy
-
-* Chords are snapped to:
-    * nearest beat (with tolerance)
-    * real musical grid instead of estimated rhythm
-* Much better coherence for DJ mixing & cueing
-V12 - Stable release
-
--------------------------------------------------------
-
-# VirtualDJ Chords Injection
-
-AI-powered chord detection and injection tool for VirtualDJ `database.xml`.
-
-![Chord Detection Preview](docs/preview.png)
-
-This tool analyzes your audio files (AIFF, WAV, FLAC, etc.), applies fine pitch detection and correction to **A=440 Hz**, and writes chords as POI markers directly into VirtualDJ.
-It also creates an automatic fine pitch POI so tracks can be played closer to A=440 Hz, making them easier to use with external instruments such as synths, VSTs, or piano.
+<h1 align="center">Chord Injector for VirtualDJ</h1>
+<p align="center"><b>V1.2</b> · macOS (Apple Silicon / Intel) · Windows</p>
+<p align="center"><a href="https://www.paypal.com/paypalme/owfrappier"><b>☕ DONATE (PayPal)</b></a></p>
 
 ---
 
-## ⚠️ macOS Requirement
-
-⚠️ **macOS Full Disk Access is required for AppleScript to work properly**
-VirtualDJ 2026 > BUILD 9295 (2026-04-19)
-macOS (Apple Silicon recommended)
-Python 3.10+
-VirtualDJ
-
-Make sure to have this kind of Python path:
-
-/Users/YOUR_USERNAME/.venvs/audio312/bin/python
+🇬🇧 [English](#english) · 🇫🇷 [Français](#français)
 
 ---
 
-## Features
+## English
 
-- Fast batch chord detection
-- Fine pitch detection & correction (to A=440 Hz)
-- Writes chords directly into VirtualDJ database
-- Automatic database backup
-- Supports large libraries (thousands of tracks)
-- Optimized for macOS (Apple Silicon)
+**Chord Injector for VirtualDJ** analyses your music library and writes into VirtualDJ:
 
----
-## VirtualDJ Compatibility
+- 🎹 **Chords** as POI markers, aligned on VirtualDJ's own beat grid (fixed and variable BPM), with half-beat passing chords, 7ths, maj7, dim/dim7 and inversions (C/E…).
+- 🎚️ **Fine pitch correction to A = 440 Hz**: the tuning of each track is measured to the cent and a pitch POI is added, so tracks play in tune with synths, VSTs or a piano.
+- 🔑 **Key** of the track, deduced from its chords — written to the VirtualDJ database, to the audio file tag (`TKEY`), or both.
 
-Tested with:
+Full library (≈ 12 000 tracks) analysed in about **30 minutes** on a recent Mac.
 
-- VirtualDJ 2026 > BUILD 9295 (2026-04-19) (New Fluid Database.xml synthax)
+### Download & install
 
-⚠️ Older versions may not support all POI features or database structure.
+Get the latest version in **[Releases](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases)**.
+The former Python / AppleScript version (V13) is still available in the older releases of this repository.
 
+- **macOS**: unzip, move *Chord Injector for VirtualDJ.app* to Applications. The app is not notarised: the first time, **right-click → Open**.
+- **Windows**: unzip and run *Chord Injector for VirtualDJ.exe*.
 
+Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed by VirtualDJ (BPM / beat grid).
+Optional: [ffmpeg](https://ffmpeg.org) for `.mkv` / `.webm` videos and rare formats (auto-detected, or choose it in the app).
 
-------------------------------------------------------------------------------------------------------------
+### How to use
 
-## macOS Terminal Installation Guide
+1. **VirtualDJ database** — detected automatically: the database of the external drive first (`/Volumes/<drive>/VirtualDJ/database.xml`, `E:\VirtualDJ\database.xml`), otherwise the internal one. Use *Other…* to pick another.
+2. **Tracks** — *One track* (search by title / artist) or *Whole database*.
+3. **Analyse**, check the log, then **Write to VirtualDJ**.
 
-This AppleScript expects Python to be installed at:
+### Safety
 
+- VirtualDJ is **always closed while writing** (it rewrites its database when quitting), then reopened.
+- A **backup** `database.backup-YYYYMMDD-HHMMSS.xml` is created next to the database at every write (last 20 kept).
+- Audio tags: only the `TKEY` tag is changed, in place; audio data and other tags are untouched. ⚠️ There is no backup of audio tags — your previous keys stay in the database backup.
+- Use at your own risk. Not affiliated with VirtualDJ / Atomix Productions.
 
-property pythonBin : "/Users/" & (short user name of (system info)) & "/.venvs/audio312/bin/python"
+### Tip
 
-
-So you must create the Python environment exactly here:
-
-```text
-~/.venvs/audio312
-```
-
----
-
-### 1. Install Homebrew
-
-Copy and paste:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Then (Apple Silicon Macs):
-
-```bash
-eval "$(/opt/homebrew/bin/brew shellenv)"
-```
+The first chord is placed 0.25 s after the pitch POI. If the two labels overlap in VirtualDJ, **zoom in on the waveform**.
 
 ---
 
-### 2. Install Python
+## Français
 
-```bash
-brew install python
-```
+**Chord Injector for VirtualDJ** analyse votre bibliothèque et écrit dans VirtualDJ :
 
-Check installation:
+- 🎹 **Les accords** en POI, calés sur la grille de beats de VirtualDJ (BPM fixe ou variable), avec accords de passage au demi-temps, 7e, maj7, dim/dim7 et renversements (C/E…).
+- 🎚️ **La correction de diapason à La = 440 Hz** : l'accordage de chaque morceau est mesuré au cent près et une POI pitch est ajoutée, pour jouer juste avec un synthé, des VST ou un piano.
+- 🔑 **La tonalité**, déduite des accords — écrite dans la base VirtualDJ, dans le tag du fichier audio (`TKEY`), ou les deux.
 
-```bash
-python3 --version
-```
+Une bibliothèque entière (≈ 12 000 morceaux) est analysée en **30 minutes environ** sur un Mac récent.
 
----
+### Téléchargement et installation
 
-### 3. Create the virtual environment
+Dernière version dans **[Releases](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases)**.
+L'ancienne version Python / AppleScript (V13) reste disponible dans les anciennes releases de ce dépôt.
 
-```bash
-mkdir -p ~/.venvs
-python3 -m venv ~/.venvs/audio312
-```
+- **macOS** : décompressez, placez *Chord Injector for VirtualDJ.app* dans Applications. L'app n'est pas notariée : la première fois, **clic droit → Ouvrir**.
+- **Windows** : décompressez et lancez *Chord Injector for VirtualDJ.exe*.
 
----
+Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà analysés par VirtualDJ (BPM / grille).
+Facultatif : [ffmpeg](https://ffmpeg.org) pour les vidéos `.mkv` / `.webm` et les formats rares (détecté automatiquement, ou à choisir dans l'app).
 
-### 4. Activate the environment
+### Utilisation
 
-```bash
-source ~/.venvs/audio312/bin/activate
-```
+1. **Base VirtualDJ** — détectée automatiquement : celle du disque externe d'abord (`/Volumes/<disque>/VirtualDJ/database.xml`, `E:\VirtualDJ\database.xml`), sinon la base interne. *Autre…* pour en choisir une autre.
+2. **Morceaux** — *Un morceau* (recherche titre / artiste) ou *Toute la base*.
+3. **Analyser**, vérifier le journal, puis **Écrire dans VirtualDJ**.
 
----
+### Sécurité
 
-### 5. Upgrade pip
+- VirtualDJ est **toujours fermé pendant l'écriture** (il réécrit sa base en quittant), puis rouvert.
+- Une **sauvegarde** `database.backup-AAAAMMJJ-HHMMSS.xml` est créée à côté de la base à chaque écriture (20 gardées).
+- Tags audio : seul le tag `TKEY` est modifié, sur place ; l'audio et les autres tags ne sont pas touchés. ⚠️ Pas de sauvegarde des tags audio — les anciennes tonalités restent dans la sauvegarde de la base.
+- Utilisation à vos risques. Projet indépendant, non affilié à VirtualDJ / Atomix Productions.
 
-```bash
-python -m pip install --upgrade pip
-```
+### Astuce
 
----
-
-### 6. Install required packages
-
-```bash
-pip install numpy scipy librosa soundfile
-```
+Le premier accord est placé 0,25 s après la POI pitch. Si les deux étiquettes se chevauchent dans VirtualDJ, **zoomez sur la forme d'onde**.
 
 ---
 
-### 7. Verify installation
-
-```bash
-~/.venvs/audio312/bin/python -c "import numpy, scipy, librosa, soundfile; print('Python environment OK')"
-```
-
-Expected output:
-
-```text
-Python environment OK
-```
-
----
-
-### ⚠️ Important
-
-Do NOT move or rename this folder:
-
-```text
-~/.venvs/audio312
-```
-
-The AppleScript depends on this exact path.
-
----
-
-### 🛠 If something doesn't work
-
-You can reinstall everything:
-
-```bash
-rm -rf ~/.venvs/audio312
-python3 -m venv ~/.venvs/audio312
-source ~/.venvs/audio312/bin/activate
-pip install numpy scipy librosa soundfile
-```
-or use this file :
-### Quick install
-
-```bash
-xattr -d com.apple.quarantine install-python-requirements.sh 2>/dev/null || true
-chmod +x install-python-requirements.sh
-./install-python-requirements.sh
-```
----
-FFmpeg is recommended for decoding compressed audio and video formats (MP3, AAC, MP4, MOV, WEBM, MKV).
-
-On macOS, basic formats may work without FFmpeg (CoreAudio), but installing FFmpeg ensures full compatibility.
-
-Install with Homebrew:
-brew install ffmpeg
-
-## 🔒 macOS Permissions (IMPORTANT)
-
-This script needs access to your files and VirtualDJ database.
-
-You must grant **Full Disk Access** to the application running the AppleScript.
-
-### Steps:
-
-1. Open **System Settings**
-2. Go to **Privacy & Security**
-3. Click **Full Disk Access**
-4. Add:
-   - **Script Editor** (if you run the script from it)
-   - OR the compiled **AppleScript app**
-   - OR **Terminal** (if running via Terminal)
-
-5. Restart the application
-
----
-
-### ⚠️ Important Notes
-
-- Do NOT open **VirtualDJ** during analysis  
-- Always backup your `database.xml` before running the script  
-- Use this tool at your own risk (advanced users only)
----
-
-## AppleScript Python Path
-
-Make sure to have this kind of Python path:
-
-/Users/YOUR_USERNAME/.venvs/audio312/bin/python
-
-Applescript auto detect YOUR_USERNAME :
-property pythonBin : "/Users/" & (short user name of (system info)) & "/.venvs/audio312/bin/python"
-
-------------------------------------------------------------------------------------------------------------------------------------------
-
-## Usage
-
-1. Double-click:
-
-CHORD-DETECTION-VIRTUALDJ.scpt
-
-- The AppleScript file and the Python (.py) file must be located in the same folder for the script to run correctly
-  
-2. Select your `database.xml`
-
-3. Choose analysis mode:
-- Full folder
-- Single file
-- Filter by first letter
-
-4. Let the analysis run in Terminal
-
----
-
-## VirtualDJ Usage Notes ⚠️
-
-- Tracks should already be analyzed by VirtualDJ (BPM, grid, etc.) using VirtualDJ 2026 (build 9295 or newer), as this version introduces the updated fluid BeatGrid format required for accurate chord placement.
-
-### Do not open VirtualDJ during analysis
-
-- The script automatically closes VirtualDJ before starting
-- Do NOT reopen VirtualDJ during analysis
-- This may corrupt or overwrite your database
-
----
-
-### Selecting the correct database.xml
-
-#### External drive (recommended)
-
-/Volumes/YourDrive/VirtualDJ/database.xml
-
-👉 Auto-detected by the script if available
-
----
-
-#### Internal drive
-
-/Users/YOUR_USERNAME/Library/Application Support/VirtualDJ/database.xml
-
----
-
-### Important
-
-- Always select the database matching your audio files location
-- Using the wrong database will result in:
-  - Missing chords
-  - Wrong library being modified
-
----
-
-## macOS Permissions ⚠️ (Important)
-
-If you get errors like:
-
-Operation not permitted
-Permission denied
-
-Enable Full Disk Access:
-
-System Settings → Privacy & Security → Full Disk Access
-
-Add:
-- Terminal
-- Script Editor (or the app used to run the script)
-
----
-
-## ⚠️ Disclaimer & Safety
-
-### Use at your own risk
-
-This tool directly modifies your VirtualDJ `database.xml`.
-
-👉 You MUST manually backup your database before using this tool.
-
-Example:
-
-Copy database.xml → database_backup.xml
-
----
-
-### Important Warning
-
-- This tool is intended for **advanced users and developers only**
-- Incorrect usage may:
-  - Corrupt your VirtualDJ database
-  - Cause data loss
-  - Affect your music library
-
----
-
-### Liability
-
-By using this tool, you agree that:
-
-- You are fully responsible for any changes made
-- The author is **not responsible** for any damage or data loss
-- This tool is **not affiliated with VirtualDJ or its developers**
-
----
-
-### Safety Summary
-
-✔ Always backup your database manually  
-✔ Do not run VirtualDJ during analysis  
-✔ Use only if you understand the process  
-
----
-
-## Recommended Audio Formats
-
-- AIFF ✔ (best)
-- WAV ✔
-- FLAC ✔
-- ALAC ⚠️ (slower analyse)
-- .m4a .mp3 .aac⚠️ (slower analyse)
-- video files (.mov .mp4 .mkv...) (slower analyse)
----
-
-## Tested Environment
-
-- macOS (Apple Silicon)
-- Python 3.12
-- librosa 0.10+
-
----
-
-## License
-
-MIT License (recommended)
+© Olivier FRAPPIER 2026 · [DONATE](https://www.paypal.com/paypalme/owfrappier) · VirtualDJ is a trademark of Atomix Productions.
