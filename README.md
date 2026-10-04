@@ -8,7 +8,7 @@
 
 
 <h1 align="center">Chord Injector for VirtualDJ</h1>
-<p align="center"><b>V1.2</b> · macOS (Apple Silicon) · Windows (x64)</p>
+<p align="center"><b>V1.2.2</b> · macOS (Apple Silicon) · Windows (x64)</p>
 <p align="center"><a href="https://www.paypal.com/paypalme/owfrappier"><b>☕ DONATE (PayPal)</b></a></p>
 
 ---
@@ -19,10 +19,13 @@
 
 ## English
 
+> 🎯 **New in V1.2.2 — every track in tune at A = 440 Hz, without touching the tempo.**
+> The tuning POI now uses VirtualDJ's `key_smooth`: the track is shifted by the exact number of cents it is out of tune, while **the BPM stays exactly the same** — with or without Master Tempo (key lock). Before, the pitch POI also changed the tempo, and did nothing to the tuning with Master Tempo on.
+
 **Chord Injector for VirtualDJ** analyses your music library and writes into VirtualDJ:
 
-- 🎹 **Chords** as POI markers, aligned on VirtualDJ's own beat grid (fixed and variable BPM), with half-beat passing chords, 7ths, maj7, dim/dim7 and inversions (C/E…).
-- 🎚️ **Fine pitch correction to A = 440 Hz**: the tuning of each track is measured to the cent and a pitch POI is added, so tracks play in tune with synths, VSTs or a piano.
+- 🎹 **Chords** as POI markers, aligned on VirtualDJ's own beat grid (fixed and variable BPM), with half-beat passing chords, 7ths, maj7, dim/dim7, half-diminished m7b5, inversions (C/E, G7/B…) and chromatic bass lines (Cm → Cm/B → Cm/Bb).
+- 🎚️ **Fine tuning to A = 440 Hz, tempo unchanged**: the tuning of each track is measured to the cent and a tuning POI is added (named in cents, e.g. `-43.6c`, action `key_smooth`), so tracks play in tune with synths, VSTs or a piano — **the BPM does not move**, with or without Master Tempo.
 - 🔑 **Key** of the track, deduced from its chords — written to the VirtualDJ database, to the audio file tag (`TKEY`), or both.
 
 Full library (≈ 12 000 tracks) analysed in about **30 minutes** on a recent Mac.
@@ -51,6 +54,9 @@ Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed 
 1. **VirtualDJ database** — detected automatically: the database of the external drive first (`/Volumes/<drive>/VirtualDJ/database.xml`, `E:\VirtualDJ\database.xml`), otherwise the internal one. Use *Other…* to pick another.
 2. **Tracks** — *One track* (search by title / artist) or *Whole database*.
 3. **Analyse**, check the log, then **Write to VirtualDJ**.
+4. To remove our markers: **Clear chords / tuning POI** (one track or the whole database) removes the chord POIs and / or the tuning POI, depending on the boxes ticked. Keys, cues, loops and automix points are kept.
+
+**Updating from V1.2:** re-analyse and write again (tick *Re-do tracks that already have chords*): the old `pitch_zero` POIs are replaced by the new `key_smooth` ones.
 
 ### Safety
 
@@ -61,16 +67,19 @@ Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed 
 
 ### Tip
 
-The first chord is placed 0.25 s after the pitch POI. If the two labels overlap in VirtualDJ, **zoom in on the waveform**.
+The first chord is placed 0.25 s after the tuning POI. If the two labels overlap in VirtualDJ, **zoom in on the waveform**.
 
 ---
 
 ## Français
 
+> 🎯 **Nouveau dans la V1.2.2 — chaque morceau juste à La = 440 Hz, sans toucher au tempo.**
+> La POI de diapason utilise maintenant `key_smooth` de VirtualDJ : le morceau est décalé du nombre exact de cents dont il est faux, et **le BPM reste exactement le même** — avec ou sans Master Tempo. Avant, la POI pitch changeait aussi le tempo, et ne corrigeait plus la justesse quand Master Tempo était activé.
+
 **Chord Injector for VirtualDJ** analyse votre bibliothèque et écrit dans VirtualDJ :
 
-- 🎹 **Les accords** en POI, calés sur la grille de beats de VirtualDJ (BPM fixe ou variable), avec accords de passage au demi-temps, 7e, maj7, dim/dim7 et renversements (C/E…).
-- 🎚️ **La correction de diapason à La = 440 Hz** : l'accordage de chaque morceau est mesuré au cent près et une POI pitch est ajoutée, pour jouer juste avec un synthé, des VST ou un piano.
+- 🎹 **Les accords** en POI, calés sur la grille de beats de VirtualDJ (BPM fixe ou variable), avec accords de passage au demi-temps, 7e, maj7, dim/dim7, demi-diminués m7b5, renversements (C/E, G7/B…) et lignes de basse chromatiques (Cm → Cm/B → Cm/Bb).
+- 🎚️ **La correction de diapason à La = 440 Hz, tempo inchangé** : l'accordage de chaque morceau est mesuré au cent près et une POI de diapason est ajoutée (nommée en cents, ex. `-43.6c`, action `key_smooth`), pour jouer juste avec un synthé, des VST ou un piano — **le BPM ne bouge pas**, avec ou sans Master Tempo.
 - 🔑 **La tonalité**, déduite des accords — écrite dans la base VirtualDJ, dans le tag du fichier audio (`TKEY`), ou les deux.
 
 Une bibliothèque entière (≈ 12 000 morceaux) est analysée en **30 minutes environ** sur un Mac récent.
@@ -99,6 +108,9 @@ Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà an
 1. **Base VirtualDJ** — détectée automatiquement : celle du disque externe d'abord (`/Volumes/<disque>/VirtualDJ/database.xml`, `E:\VirtualDJ\database.xml`), sinon la base interne. *Autre…* pour en choisir une autre.
 2. **Morceaux** — *Un morceau* (recherche titre / artiste) ou *Toute la base*.
 3. **Analyser**, vérifier le journal, puis **Écrire dans VirtualDJ**.
+4. Pour retirer nos repères : **Effacer accords / POI diapason** (un morceau ou toute la base) retire les POI d'accords et / ou la POI de diapason, selon les cases cochées. Tonalités, cues, boucles et points automix sont conservés.
+
+**Mise à jour depuis la V1.2 :** réanalysez et réécrivez (cochez *Refaire aussi les morceaux qui ont déjà des accords*) : les anciennes POI `pitch_zero` sont remplacées par les nouvelles POI `key_smooth`.
 
 ### Sécurité
 
@@ -109,7 +121,7 @@ Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà an
 
 ### Astuce
 
-Le premier accord est placé 0,25 s après la POI pitch. Si les deux étiquettes se chevauchent dans VirtualDJ, **zoomez sur la forme d'onde**.
+Le premier accord est placé 0,25 s après la POI de diapason. Si les deux étiquettes se chevauchent dans VirtualDJ, **zoomez sur la forme d'onde**.
 
 ---
 

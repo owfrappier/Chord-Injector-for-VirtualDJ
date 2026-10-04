@@ -1,5 +1,12 @@
 # Changelog
 
+## V1.2.2 — 2026-10
+- Accord demi-diminué **m7b5** (Aø = A C E♭ G), auparavant détecté comme Am7. / Half-diminished **m7b5** chord (Aø), previously detected as Am7.
+- Lignes de basse chromatiques (Cm → Cm/B → Cm/Bb → Am7b5) écrites avec leur basse. / Chromatic bass lines written with their bass note.
+- Correction de diapason par `key_smooth` : tempo inchangé, fonctionne avec Master Tempo ; POI nommée en cents (« -43.6c »). / Tuning correction now uses `key_smooth`: tempo unchanged, works with Master Tempo; POI named in cents ("-43.6c").
+- Bouton « Effacer accords / POI pitch » (un morceau ou toute la base), tonalités conservées, sauvegarde automatique. / "Clear chords / pitch POI" button (one track or whole database), keys kept, automatic backup.
+- Renversements aussi sur les accords de 7e, dim et m7b5 (G7/B, Cm7/Bb, Bdim/D). / Inversions also on 7th, dim and m7b5 chords.
+
 ## V1.2 — 2026-10
 Réécriture complète en C++ / JUCE (remplace le script Python V13 + AppleScript).
 
