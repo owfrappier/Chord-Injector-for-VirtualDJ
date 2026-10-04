@@ -188,3 +188,5 @@ Le premier accord est placé 0,25 s après la POI de diapason. Si les deux étiq
 © Olivier FRAPPIER 2026 · [DONATE](https://www.paypal.com/paypalme/owfrappier)
 
 *Chord Injector for VirtualDJ is a free initiative by a VirtualDJ fan, to improve key detection and add chords to VirtualDJ. It is an independent product and is not affiliated with, endorsed by or sponsored by VirtualDJ or Atomix Productions. VirtualDJ is a trademark of Atomix Productions.*
+
+*Idea, design, testing and direction: Olivier Frappier. The C++ code was written with the help of Claude (Anthropic's AI assistant), following his ideas and under his direction. · Idée, conception, tests et direction : Olivier Frappier. Le code C++ a été écrit avec l'aide de Claude (l'assistant IA d'Anthropic), sur ses idées et sous sa direction.*
