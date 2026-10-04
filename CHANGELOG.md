@@ -1,5 +1,8 @@
 # Changelog
 
+## V1.2.3 — 2026-10
+- Accords de 6te (aussi joués sans tierce, ex. Fm6) et suspendus déduits de la basse : C6, Cm6, Fm6, Csus2sus4, G7sus4. / 6th chords (also played without a third, e.g. Fm6) and suspended chords deduced from the bass.
+
 ## V1.2.2 — 2026-10
 - Accord demi-diminué **m7b5** (Aø = A C E♭ G), auparavant détecté comme Am7. / Half-diminished **m7b5** chord (Aø), previously detected as Am7.
 - Lignes de basse chromatiques (Cm → Cm/B → Cm/Bb → Am7b5) écrites avec leur basse. / Chromatic bass lines written with their bass note.
