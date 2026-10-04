@@ -63,6 +63,27 @@ Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed 
 
 **Updating from V1.2:** re-analyse and write again (tick *Re-do tracks that already have chords*): the old `pitch_zero` POIs are replaced by the new `key_smooth` ones.
 
+### Chord Display — plugin for VirtualDJ (add-on, October 4, 2026)
+
+**Download:** [macOS (Apple Silicon) — Chord-Display-for-VirtualDJ-1.2.3-macOS.zip](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases/download/v1.2.3/Chord-Display-for-VirtualDJ-1.2.3-macOS.zip) · [Windows — ChordDisplay.dll](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases/download/v1.2.3/ChordDisplay.dll)
+
+A free VirtualDJ effect that shows the chords **while you play**, in its own floating window:
+- the current chord in big letters, and the next chords **scrolling** under a vertical playhead, like the waveform;
+- beat marks, **zoom** (− / +) and **7 colours** (blue, violet, red, yellow, white, green, gold);
+- **follows the transposition** of the deck (key + 2 → Am becomes Bm);
+- the sound is not changed; nothing is written to the database. It reads the chords written by Chord Injector.
+
+**Install** (VirtualDJ closed):
+- **macOS (Apple Silicon)**: unzip `Chord-Display-for-VirtualDJ-…-macOS.zip` (signed and notarised by Apple) and copy `ChordDisplay.bundle` to
+  `~/Library/Application Support/VirtualDJ/PluginsMacArm/SoundEffect/`
+  (Finder: Go → Go to Folder…, paste the path; create the `SoundEffect` folder if it does not exist).
+- **Windows**: copy `ChordDisplay.dll` to
+  `%LOCALAPPDATA%\VirtualDJ\Plugins64\SoundEffect\`
+  (Windows + R, paste the path; create the `SoundEffect` folder if it does not exist — not in `Visualisation`).
+  Older VirtualDJ installations may use `Documents\VirtualDJ\Plugins64\SoundEffect\` instead.
+
+Then start VirtualDJ, choose **Chord Display** in the effects of a deck and open its window.
+
 ### Safety
 
 - VirtualDJ is **always closed while writing** (it rewrites its database when quitting), then reopened.
@@ -118,6 +139,27 @@ Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà an
 4. Pour retirer nos repères : **Effacer accords / POI diapason** (un morceau ou toute la base) retire les POI d'accords et / ou la POI de diapason, selon les cases cochées. Tonalités, cues, boucles et points automix sont conservés.
 
 **Mise à jour depuis la V1.2 :** réanalysez et réécrivez (cochez *Refaire aussi les morceaux qui ont déjà des accords*) : les anciennes POI `pitch_zero` sont remplacées par les nouvelles POI `key_smooth`.
+
+### Chord Display — plugin pour VirtualDJ (add-on du 4 octobre 2026)
+
+**Téléchargement :** [macOS (Apple Silicon) — Chord-Display-for-VirtualDJ-1.2.3-macOS.zip](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases/download/v1.2.3/Chord-Display-for-VirtualDJ-1.2.3-macOS.zip) · [Windows — ChordDisplay.dll](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases/download/v1.2.3/ChordDisplay.dll)
+
+Un effet VirtualDJ gratuit qui affiche les accords **pendant que vous jouez**, dans sa propre fenêtre flottante :
+- l'accord en cours en grand, et les accords suivants qui **défilent** sous une tête de lecture verticale, comme la forme d'onde ;
+- repères des temps, **zoom** (− / +) et **7 couleurs** (bleu, violet, rouge, jaune, blanc, vert, or) ;
+- **suit la transposition** de la platine (tonalité + 2 → Am devient Bm) ;
+- le son n'est pas modifié, rien n'est écrit dans la base : il lit les accords écrits par Chord Injector.
+
+**Installation** (VirtualDJ fermé) :
+- **macOS (Apple Silicon)** : décompressez `Chord-Display-for-VirtualDJ-…-macOS.zip` (signé et notarisé par Apple) et copiez `ChordDisplay.bundle` dans
+  `~/Library/Application Support/VirtualDJ/PluginsMacArm/SoundEffect/`
+  (Finder : Aller → Aller au dossier…, collez le chemin ; créez le dossier `SoundEffect` s'il n'existe pas).
+- **Windows** : copiez `ChordDisplay.dll` dans
+  `%LOCALAPPDATA%\VirtualDJ\Plugins64\SoundEffect\`
+  (Windows + R, collez le chemin ; créez le dossier `SoundEffect` s'il n'existe pas — pas dans `Visualisation`).
+  Sur une ancienne installation de VirtualDJ, le dossier peut être `Documents\VirtualDJ\Plugins64\SoundEffect\`.
+
+Lancez ensuite VirtualDJ, choisissez **Chord Display** dans les effets d'une platine et ouvrez sa fenêtre.
 
 ### Sécurité
 
