@@ -1,7 +1,7 @@
 <p align="center"><img src="icon.png" width="160" alt="Chord Injector for VirtualDJ"></p>
 
 <h1 align="center">Chord Injector for VirtualDJ</h1>
-<p align="center"><b>V1.2</b> · macOS (Apple Silicon / Intel) · Windows</p>
+<p align="center"><b>V1.2</b> · macOS (Apple Silicon) · Windows (x64)</p>
 <p align="center"><a href="https://www.paypal.com/paypalme/owfrappier"><b>☕ DONATE (PayPal)</b></a></p>
 
 ---
@@ -25,11 +25,19 @@ Full library (≈ 12 000 tracks) analysed in about **30 minutes** on a recent Ma
 Get the latest version in **[Releases](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases)**.
 The former Python / AppleScript version (V13) is still available in the older releases of this repository.
 
-- **macOS**: unzip, move *Chord Injector for VirtualDJ.app* to Applications. The app is not notarised: the first time, **right-click → Open**.
-- **Windows**: unzip and run *Chord Injector for VirtualDJ.exe*.
+- **macOS**: open the **.pkg** installer (signed and notarised by Apple), the app is installed in Applications. A **.zip** of the app is also available.
+- **Windows**: unzip and run *Chord Injector for VirtualDJ.exe*. The app is not signed: if SmartScreen shows "Windows protected your PC", click **More info** → **Run anyway**.
 
 Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed by VirtualDJ (BPM / beat grid).
-Optional: [ffmpeg](https://ffmpeg.org) for `.mkv` / `.webm` videos and rare formats (auto-detected, or choose it in the app).
+
+**ffmpeg** (auto-detected, or choose it in the app):
+
+- **Windows — recommended**: needed for M4A / AAC / ALAC and videos. Install it by typing in a terminal (PowerShell):
+  ```
+  winget install ffmpeg
+  ```
+  then restart the app (or click **Auto**).
+- **macOS — optional**: only for `.mkv` / `.webm` videos and rare formats: `brew install ffmpeg`.
 
 ### How to use
 
@@ -65,11 +73,19 @@ Une bibliothèque entière (≈ 12 000 morceaux) est analysée en **30 minutes e
 Dernière version dans **[Releases](https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases)**.
 L'ancienne version Python / AppleScript (V13) reste disponible dans les anciennes releases de ce dépôt.
 
-- **macOS** : décompressez, placez *Chord Injector for VirtualDJ.app* dans Applications. L'app n'est pas notariée : la première fois, **clic droit → Ouvrir**.
-- **Windows** : décompressez et lancez *Chord Injector for VirtualDJ.exe*.
+- **macOS** : ouvrez l'installeur **.pkg** (signé et notarisé par Apple), l'app s'installe dans Applications. Un **.zip** de l'app est aussi disponible.
+- **Windows** : décompressez et lancez *Chord Injector for VirtualDJ.exe*. L'application n'est pas signée : si SmartScreen affiche « Windows a protégé votre ordinateur », cliquez sur **Informations complémentaires** → **Exécuter quand même**.
 
 Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà analysés par VirtualDJ (BPM / grille).
-Facultatif : [ffmpeg](https://ffmpeg.org) pour les vidéos `.mkv` / `.webm` et les formats rares (détecté automatiquement, ou à choisir dans l'app).
+
+**ffmpeg** (détecté automatiquement, ou à choisir dans l'app) :
+
+- **Windows — recommandé** : nécessaire pour les M4A / AAC / ALAC et les vidéos. Installez-le en tapant dans un terminal (PowerShell) :
+  ```
+  winget install ffmpeg
+  ```
+  puis relancez l'app (ou cliquez sur **Auto**).
+- **macOS — facultatif** : seulement pour les vidéos `.mkv` / `.webm` et les formats rares : `brew install ffmpeg`.
 
 ### Utilisation
 
