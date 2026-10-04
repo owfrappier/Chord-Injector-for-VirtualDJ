@@ -2,11 +2,6 @@
 
 
 <p align="center">
-  <img src="screenshot4.png?v=1.2" alt="Chord Injector for Virtual DJ 2026 interface" width="900">
-</p>
-
-
-<p align="center">
   <img src="screenshot2.png?v=1.2" alt="Chord Injector for Virtual DJ 2026 interface" width="900">
 </p>
 
@@ -79,6 +74,8 @@ Requirements: **VirtualDJ 2026 (build 9295 or newer)**, tracks already analysed 
 
 The first chord is placed 0.25 s after the tuning POI. If the two labels overlap in VirtualDJ, **zoom in on the waveform**.
 
+**Bigger chord names:** the size of POI labels is set by your skin. Make a copy of your skin's `.zip`, open `Main.xml`, and in each `<cue>` block add a `size` attribute to the `<text … />` line (for example `size="32"`; the default is about 14–16). Put the copy in VirtualDJ's `Skins` folder and select it. Tested with the *Vanced* skin (64 `<cue>` blocks).
+
 ---
 
 ## Français
@@ -132,6 +129,8 @@ Prérequis : **VirtualDJ 2026 (build 9295 ou plus récent)**, morceaux déjà an
 ### Astuce
 
 Le premier accord est placé 0,25 s après la POI de diapason. Si les deux étiquettes se chevauchent dans VirtualDJ, **zoomez sur la forme d'onde**.
+
+**Noms d'accords plus grands :** la taille des étiquettes de POI dépend de votre skin. Faites une copie du `.zip` de votre skin, ouvrez `Main.xml`, et dans chaque bloc `<cue>` ajoutez un attribut `size` à la ligne `<text … />` (par exemple `size="32"` ; par défaut environ 14 à 16). Placez la copie dans le dossier `Skins` de VirtualDJ et sélectionnez-la. Testé avec le skin *Vanced* (64 blocs `<cue>`).
 
 ---
 
