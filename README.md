@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="docs/screenshot.png?v=1.2" alt="Chord Injector for Virtual DJ 2026 interface" width="900">
+  <img src="screenshot2.png?v=1.2" alt="Chord Injector for Virtual DJ 2026 interface" width="900">
 </p>
 
 
