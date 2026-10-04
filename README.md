@@ -1,5 +1,12 @@
 <p align="center"><img src="icon.png" width="160" alt="Chord Injector for VirtualDJ"></p>
 
+
+<p align="center">
+  <img src="docs/screenshot.png?v=1.2" alt="PianoToLife interface" width="900">
+</p>
+
+
+
 <h1 align="center">Chord Injector for VirtualDJ</h1>
 <p align="center"><b>V1.2</b> · macOS (Apple Silicon) · Windows (x64)</p>
 <p align="center"><a href="https://www.paypal.com/paypalme/owfrappier"><b>☕ DONATE (PayPal)</b></a></p>
