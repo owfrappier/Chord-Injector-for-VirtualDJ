@@ -113,4 +113,6 @@ Le premier accord est placé 0,25 s après la POI pitch. Si les deux étiquettes
 
 ---
 
-© Olivier FRAPPIER 2026 · [DONATE](https://www.paypal.com/paypalme/owfrappier) · VirtualDJ is a trademark of Atomix Productions.
+© Olivier FRAPPIER 2026 · [DONATE](https://www.paypal.com/paypalme/owfrappier)
+
+*Chord Injector for VirtualDJ is a free initiative by a VirtualDJ fan, to improve key detection and add chords to VirtualDJ. It is an independent product and is not affiliated with, endorsed by or sponsored by VirtualDJ or Atomix Productions. VirtualDJ is a trademark of Atomix Productions.*
