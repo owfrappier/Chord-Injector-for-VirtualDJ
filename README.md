@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> ## ➡️ This project has moved to **[Chord Live for VirtualDJ](https://github.com/owfrappier/VIRTUALDJ-CHORDS-PLUGIN)**
+> Chord Injector is **archived** and no longer updated. Its analysis engine continues, improved, in **Chord Live**: a free VirtualDJ plugin that shows chords, key and A = 440 Hz tuning **live**, without writing anything to your VirtualDJ database.
+>
+> 🇫🇷 **Ce projet continue dans [Chord Live for VirtualDJ](https://github.com/owfrappier/VIRTUALDJ-CHORDS-PLUGIN).** Chord Injector est **archivé** et n'est plus mis à jour. Son moteur d'analyse continue, amélioré, dans **Chord Live** : un plugin VirtualDJ gratuit qui affiche accords, tonalité et diapason La 440 **en direct**, sans rien écrire dans votre base VirtualDJ.
+
 <p align="center"><img src="icon.png" width="160" alt="Chord Injector for VirtualDJ"></p>
 
 
@@ -15,15 +21,6 @@
   <a href="https://github.com/owfrappier/Chord-Injector-for-VirtualDJ/releases/latest">Latest release</a>
 </p>
 <p align="center"><a href="https://www.paypal.com/paypalme/owfrappier"><b>☕ DONATE (PayPal)</b></a></p>
-
-> [!TIP]
-> 🆕 **Simpler option — nothing written to your VirtualDJ database: [Chord Live for VirtualDJ](https://github.com/owfrappier/VIRTUALDJ-CHORDS-PLUGIN)**
-> A free VirtualDJ plugin that analyses the loaded track **live**: chords, key and A = 440 Hz tuning, shown while you play. No POI, no tags, no backup needed, no need to close VirtualDJ. Works with pitch, transposition and Master Tempo.
->
-> 🇫🇷 **Plus simple, sans rien écrire dans votre base VirtualDJ : [Chord Live for VirtualDJ](https://github.com/owfrappier/VIRTUALDJ-CHORDS-PLUGIN)**
-> Un plugin VirtualDJ gratuit qui analyse **en direct** le morceau chargé : accords, tonalité et diapason La 440, affichés pendant que vous jouez. Ni POI, ni tags, ni sauvegarde, ni fermeture de VirtualDJ. Compatible pitch, transposition et Master Tempo.
->
-> *Chord Injector remains the tool to write chords, key and tuning into the database for your whole library. · Chord Injector reste l'outil pour écrire accords, tonalité et diapason dans la base pour toute votre bibliothèque.*
 
 ---
 
